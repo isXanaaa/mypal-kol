@@ -1,0 +1,62 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract global payment network visual">
+  <rect width="1600" height="1000" fill="#07120F"/>
+  <g opacity="0.24">
+    <path d="M-60 205H1660" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M-60 395H1660" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M-60 585H1660" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M-60 775H1660" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M250 -80V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M520 -80V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M790 -80V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M1060 -80V1080" stroke="#FFFFFF" stroke-width="1"/>
+    <path d="M1330 -80V1080" stroke="#FFFFFF" stroke-width="1"/>
+  </g>
+  <g opacity="0.9">
+    <path d="M285 690C382 533 516 450 688 442C846 434 938 337 1042 244C1129 166 1245 148 1360 206" stroke="#CAFF2E" stroke-width="6" stroke-linecap="round"/>
+    <path d="M244 362C383 331 513 340 634 389C760 441 858 532 991 540C1118 548 1228 492 1362 404" stroke="#46D1BD" stroke-width="4" stroke-linecap="round"/>
+    <path d="M372 212C472 286 580 316 696 302C824 286 910 220 1038 229C1154 237 1239 302 1327 370" stroke="#F8D64F" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g>
+    <circle cx="286" cy="690" r="20" fill="#CAFF2E"/>
+    <circle cx="688" cy="442" r="22" fill="#CAFF2E"/>
+    <circle cx="1042" cy="244" r="18" fill="#CAFF2E"/>
+    <circle cx="1360" cy="206" r="20" fill="#CAFF2E"/>
+    <circle cx="244" cy="362" r="16" fill="#46D1BD"/>
+    <circle cx="634" cy="389" r="18" fill="#46D1BD"/>
+    <circle cx="991" cy="540" r="20" fill="#46D1BD"/>
+    <circle cx="1362" cy="404" r="16" fill="#46D1BD"/>
+    <circle cx="372" cy="212" r="15" fill="#F8D64F"/>
+    <circle cx="696" cy="302" r="18" fill="#F8D64F"/>
+    <circle cx="1038" cy="229" r="16" fill="#F8D64F"/>
+    <circle cx="1327" cy="370" r="18" fill="#F8D64F"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="905" y="604" width="390" height="228" rx="28" fill="#101C18"/>
+    <rect x="929" y="628" width="342" height="180" rx="22" fill="url(#cardGradient)"/>
+    <rect x="966" y="671" width="70" height="50" rx="12" fill="#F8D64F"/>
+    <path d="M966 755H1192" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" opacity="0.88"/>
+    <path d="M966 782H1124" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" opacity="0.48"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="403" y="561" width="250" height="118" rx="18" fill="#FFFFFF" fill-opacity="0.1" stroke="#FFFFFF" stroke-opacity="0.24"/>
+    <circle cx="455" cy="620" r="26" fill="#CAFF2E"/>
+    <path d="M503 603H606" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <path d="M503 633H575" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" opacity="0.52"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="1137" y="282" width="244" height="108" rx="18" fill="#FFFFFF" fill-opacity="0.1" stroke="#FFFFFF" stroke-opacity="0.24"/>
+    <circle cx="1185" cy="336" r="24" fill="#46D1BD"/>
+    <path d="M1230 321H1342" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <path d="M1230 350H1301" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" opacity="0.52"/>
+  </g>
+  <defs>
+    <filter id="shadow" x="330" y="210" width="1120" height="700" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#000000" flood-opacity="0.34"/>
+    </filter>
+    <linearGradient id="cardGradient" x1="929" y1="628" x2="1271" y2="808" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CAFF2E"/>
+      <stop offset="0.45" stop-color="#46D1BD"/>
+      <stop offset="1" stop-color="#0D1714"/>
+    </linearGradient>
+  </defs>
+</svg>
