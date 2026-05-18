@@ -1,0 +1,2011 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mypal Creator Partnership Hub</title>
+  <meta name="description" content="A Mypal BD landing page for creator and KOL partnership outreach.">
+  <style>
+    :root {
+      --ink: #07120f;
+      --deep: #0d1714;
+      --panel: #12221d;
+      --paper: #f7f9ee;
+      --muted: #5d6c65;
+      --line: rgba(7, 18, 15, 0.12);
+      --line-dark: rgba(255, 255, 255, 0.14);
+      --lime: #caff2e;
+      --green: #23d47a;
+      --yellow: #f8d64f;
+      --teal: #46d1bd;
+      --blue: #4f8cff;
+      --coral: #ff7f62;
+      --white: #ffffff;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.24);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    body.is-zh {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line-dark);
+      background: rgba(7, 18, 15, 0.9);
+      color: var(--white);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 40px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--lime), var(--yellow));
+      box-shadow: 0 8px 22px rgba(202, 255, 46, 0.24);
+      font-size: 15px;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+      min-width: 0;
+    }
+
+    .brand-text small {
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 5px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 10px 11px;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .language-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .language-toggle button {
+      min-width: 48px;
+      height: 32px;
+      border: 0;
+      border-radius: 6px;
+      color: rgba(255, 255, 255, 0.68);
+      background: transparent;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .language-toggle button[aria-pressed="true"] {
+      color: var(--ink);
+      background: var(--lime);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 800;
+      letter-spacing: 0;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      color: var(--ink);
+      background: var(--lime);
+      box-shadow: 0 16px 34px rgba(202, 255, 46, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: #d9ff67;
+    }
+
+    .btn-secondary {
+      color: var(--white);
+      border-color: var(--line-dark);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.34);
+    }
+
+    .btn-light {
+      color: var(--ink);
+      border-color: var(--line);
+      background: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(7, 18, 15, 0.98), rgba(7, 18, 15, 0.74)),
+        url("assets/mypal-payment-visual.svg") center / cover no-repeat,
+        #07120f;
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 40px));
+      min-height: calc(100vh - 72px);
+      margin: 0 auto;
+      padding: 76px 0 64px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.78fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: var(--lime);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--lime);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 24px;
+      font-size: 64px;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin-bottom: 34px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 0;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      place-items: center;
+    }
+
+    .device {
+      width: min(380px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+      padding: 16px;
+      background: #0a100e;
+      box-shadow: var(--shadow);
+    }
+
+    .device-screen {
+      min-height: 560px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .screen-head {
+      padding: 22px;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--lime), var(--yellow));
+    }
+
+    .screen-head small {
+      display: block;
+      color: rgba(7, 18, 15, 0.68);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .screen-head strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1.05;
+    }
+
+    .card-face {
+      margin: -20px 22px 0;
+      padding: 22px;
+      min-height: 184px;
+      border-radius: 16px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0)),
+        #0f1c18;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 18px 36px rgba(7, 18, 15, 0.24);
+    }
+
+    .card-face .chip {
+      width: 42px;
+      height: 30px;
+      border-radius: 8px;
+      background: var(--yellow);
+      margin-bottom: 44px;
+    }
+
+    .card-face .digits {
+      font-size: 21px;
+      letter-spacing: 0.14em;
+      white-space: nowrap;
+    }
+
+    .card-face .card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .screen-list {
+      padding: 24px 22px 26px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .screen-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .screen-row span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .screen-row strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .screen-row b {
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .signal {
+      position: absolute;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2);
+    }
+
+    .signal-one {
+      left: 0;
+      top: 90px;
+      width: 170px;
+      padding: 14px;
+    }
+
+    .signal-two {
+      right: 0;
+      bottom: 92px;
+      width: 184px;
+      padding: 16px;
+    }
+
+    .signal strong {
+      display: block;
+      color: var(--white);
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .signal span {
+      display: block;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 12px;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section.dark {
+      color: var(--white);
+      background: var(--deep);
+    }
+
+    .section-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 11px;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: 40px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .dark .section-head p,
+    .dark .muted {
+      color: rgba(255, 255, 255, 0.66);
+    }
+
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .info-card {
+      min-height: 260px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .dark .info-card {
+      border-color: var(--line-dark);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--lime);
+      font-weight: 900;
+    }
+
+    .icon-box.teal {
+      background: var(--teal);
+    }
+
+    .icon-box.yellow {
+      background: var(--yellow);
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 23px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .dark .info-card p {
+      color: rgba(255, 255, 255, 0.64);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .dark .tag {
+      color: rgba(255, 255, 255, 0.72);
+      border-color: var(--line-dark);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .creator-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .creator-card .accent {
+      width: 100%;
+      height: 5px;
+      margin-bottom: 20px;
+      border-radius: 99px;
+      background: var(--green);
+    }
+
+    .creator-card:nth-child(2) .accent {
+      background: var(--yellow);
+    }
+
+    .creator-card:nth-child(3) .accent {
+      background: var(--teal);
+    }
+
+    .creator-card:nth-child(4) .accent {
+      background: var(--coral);
+    }
+
+    .creator-card h3 {
+      font-size: 20px;
+    }
+
+    .creator-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .angle-layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .angle-tabs {
+      display: grid;
+      gap: 10px;
+    }
+
+    .angle-tab {
+      min-height: 58px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--white);
+      text-align: left;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .angle-tab[aria-selected="true"] {
+      border-color: rgba(35, 212, 122, 0.34);
+      background: var(--lime);
+    }
+
+    .angle-panel {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .angle-panel[hidden] {
+      display: none;
+    }
+
+    .angle-panel h3 {
+      font-size: 28px;
+    }
+
+    .angle-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .mini-block {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcf5;
+    }
+
+    .mini-block h4 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .mini-block ul {
+      margin: 0;
+      padding-left: 19px;
+      color: var(--muted);
+    }
+
+    .mini-block li + li {
+      margin-top: 8px;
+    }
+
+    .playbook {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .play-card {
+      padding: 26px;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .play-card h3 {
+      color: var(--lime);
+    }
+
+    .play-card p {
+      color: rgba(255, 255, 255, 0.66);
+      margin-bottom: 0;
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .asset-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .asset-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      padding: 12px;
+      background: #eef4df;
+    }
+
+    .asset-figure {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .asset-figure img {
+      display: block;
+      width: 100%;
+      height: 178px;
+      object-fit: contain;
+      transition: transform 220ms ease;
+    }
+
+    .asset-figure:hover img {
+      transform: scale(1.025);
+    }
+
+    .asset-label {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      display: inline-flex;
+      min-height: 28px;
+      align-items: center;
+      padding: 0 10px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: rgba(202, 255, 46, 0.92);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .asset-empty {
+      min-height: 260px;
+      padding: 24px;
+      display: grid;
+      align-content: center;
+      gap: 10px;
+      color: var(--muted);
+      background:
+        linear-gradient(135deg, rgba(202, 255, 46, 0.18), rgba(70, 209, 189, 0.12)),
+        #f6f8ed;
+    }
+
+    .asset-empty strong {
+      display: block;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.1;
+    }
+
+    .asset-empty span {
+      font-size: 14px;
+    }
+
+    .asset-body {
+      padding: 22px;
+    }
+
+    .asset-body p {
+      color: var(--muted);
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .video-card {
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .video-frame {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      background: #000;
+    }
+
+    .video-body {
+      padding: 22px;
+    }
+
+    .video-body p {
+      color: rgba(255, 255, 255, 0.64);
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .reference-links {
+      margin-top: 18px;
+      padding: 22px;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .reference-links h3 {
+      color: var(--lime);
+    }
+
+    .reference-links ul {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .reference-links a {
+      color: rgba(255, 255, 255, 0.78);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      counter-reset: step;
+    }
+
+    .flow-step {
+      position: relative;
+      min-height: 198px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      counter-increment: step;
+    }
+
+    .flow-step::before {
+      content: "0" counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 26px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--lime);
+      font-weight: 900;
+    }
+
+    .flow-step:nth-child(2)::before,
+    .flow-step:nth-child(5)::before {
+      background: var(--yellow);
+    }
+
+    .flow-step:nth-child(3)::before {
+      background: var(--teal);
+    }
+
+    .flow-step:nth-child(4)::before {
+      background: var(--coral);
+    }
+
+    .flow-step h3 {
+      font-size: 18px;
+    }
+
+    .flow-step p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 0.8fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .contact-panel {
+      padding: 30px;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 15px 16px;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.76);
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 800;
+    }
+
+    .contact-link span:last-child {
+      color: var(--lime);
+      text-align: right;
+    }
+
+    .lead-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .lead-form label {
+      display: grid;
+      gap: 7px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .lead-form input,
+    .lead-form textarea {
+      width: 100%;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      padding: 13px 14px;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+      outline: none;
+    }
+
+    .lead-form textarea {
+      min-height: 116px;
+      resize: vertical;
+    }
+
+    .lead-form input:focus,
+    .lead-form textarea:focus {
+      border-color: var(--lime);
+    }
+
+    .form-note {
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 12px;
+      margin: 2px 0 0;
+    }
+
+    .footer {
+      padding: 28px 0;
+      color: rgba(255, 255, 255, 0.56);
+      background: #07120f;
+      border-top: 1px solid var(--line-dark);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1080px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner,
+      .section-head,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding-top: 58px;
+        gap: 38px;
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .hero-visual {
+        min-height: auto;
+      }
+
+      .signal {
+        display: none;
+      }
+
+      .snapshot-grid,
+      .fit-grid,
+      .asset-grid,
+      .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        width: min(100% - 28px, 1180px);
+        min-height: 66px;
+      }
+
+      .brand-text small,
+      .nav-actions .btn {
+        display: none;
+      }
+
+      .hero-inner,
+      .section-inner,
+      .footer-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding: 42px 0 44px;
+      }
+
+      h1 {
+        font-size: 38px;
+        line-height: 1.03;
+      }
+
+      h2 {
+        font-size: 31px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .snapshot-grid,
+      .fit-grid,
+      .asset-grid,
+      .video-grid,
+      .playbook,
+      .angle-columns,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .angle-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .angle-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .angle-tab {
+        min-height: 54px;
+        padding: 0 12px;
+        font-size: 13px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .device-screen {
+        min-height: 500px;
+      }
+
+      .card-face .digits {
+        font-size: 17px;
+      }
+
+      .contact-layout {
+        gap: 24px;
+      }
+
+      .contact-panel {
+        padding: 22px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .brand-text {
+        font-size: 14px;
+      }
+
+      .language-toggle button {
+        min-width: 42px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Mypal Creator Partnership Hub">
+          <span class="brand-mark">MP</span>
+          <span class="brand-text">
+            <span>Mypal BD</span>
+            <small data-i18n="navSubtitle">Creator Partnership Hub</small>
+          </span>
+        </a>
+        <div class="nav-links">
+          <a href="#product" data-i18n="navProduct">Product</a>
+          <a href="#angles" data-i18n="navAngles">Angles</a>
+          <a href="#media-kit" data-i18n="navMedia">Media Kit</a>
+          <a href="#references" data-i18n="navRefs">References</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </div>
+        <div class="nav-actions">
+          <div class="language-toggle" aria-label="Language switcher">
+            <button type="button" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-lang="zh" aria-pressed="false">繁中</button>
+          </div>
+          <a class="btn btn-primary" href="#contact" data-i18n="navCta">Talk to BD</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow" data-i18n="heroKicker">Creator partnerships for global payment stories</p>
+            <h1 data-i18n="heroTitle">Help your audience turn digital assets into everyday global payment power.</h1>
+            <p class="hero-copy" data-i18n="heroCopy">Mypal focuses on Web3 financial innovation and global digital payments, including digital cards, Web3 remittance, and offshore digital account services for users who move money, spend online, and operate across borders.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://www.mypal.pro/" target="_blank" rel="noreferrer" data-i18n="heroWebsite">Visit official website</a>
+              <a class="btn btn-secondary" href="#media-kit" data-i18n="heroKit">View creator kit</a>
+              <a class="btn btn-secondary" href="#angles" data-i18n="heroAngles">Find your content angle</a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Mypal payment product visual">
+            <div class="device">
+              <div class="device-screen">
+                <div class="screen-head">
+                  <small data-i18n="visualKicker">Mypal Pro</small>
+                  <strong data-i18n="visualTitle">One payment story. Many audience angles.</strong>
+                </div>
+                <div class="card-face" aria-hidden="true">
+                  <div class="chip"></div>
+                  <div class="digits">**** **** **** 2026</div>
+                  <div class="card-bottom">
+                    <span>MYPAL</span>
+                    <span>GLOBAL PAY</span>
+                  </div>
+                </div>
+                <div class="screen-list">
+                  <div class="screen-row">
+                    <span>
+                      <strong data-i18n="visualRowOne">Creator brief</strong>
+                      <span data-i18n="visualRowOneSub">Match message to audience</span>
+                    </span>
+                    <b data-i18n="visualReady">Ready</b>
+                  </div>
+                  <div class="screen-row">
+                    <span>
+                      <strong data-i18n="visualRowTwo">Media assets</strong>
+                      <span data-i18n="visualRowTwoSub">Images, screenshots, scripts</span>
+                    </span>
+                    <b data-i18n="visualSoon">Soon</b>
+                  </div>
+                  <div class="screen-row">
+                    <span>
+                      <strong data-i18n="visualRowThree">BD contact</strong>
+                      <span data-i18n="visualRowThreeSub">Telegram, WhatsApp, email</span>
+                    </span>
+                    <b data-i18n="visualOpen">Open</b>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="signal signal-one">
+              <strong data-i18n="signalOneTitle">For Web3 creators</strong>
+              <span data-i18n="signalOneCopy">Explain how crypto-native users can approach real-world spending.</span>
+            </div>
+            <div class="signal signal-two">
+              <strong data-i18n="signalTwoTitle">For commerce creators</strong>
+              <span data-i18n="signalTwoCopy">Show payment workflows for cross-border sellers and digital operators.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="product">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker" data-i18n="productKicker">Product snapshot</div>
+              <h2 data-i18n="productTitle">What creators should understand before they post.</h2>
+            </div>
+            <p data-i18n="productCopy">This page helps you quickly understand Mypal, then connect our product to your own channel format, audience needs, and content style so you can promote it in a way that feels natural and effective.</p>
+          </div>
+
+          <div class="snapshot-grid">
+            <article class="info-card">
+              <div class="icon-box">01</div>
+              <h3 data-i18n="cardOneTitle">Digital card payments</h3>
+              <p data-i18n="cardOneCopy">Position Mypal as a practical bridge between online global services, digital subscriptions, travel booking, and card-based spending scenarios.</p>
+              <div class="tag-row">
+                <span class="tag">Virtual card</span>
+                <span class="tag">Online spend</span>
+                <span class="tag">Global tools</span>
+              </div>
+            </article>
+
+            <article class="info-card">
+              <div class="icon-box teal">02</div>
+              <h3 data-i18n="cardTwoTitle">Web3 remittance</h3>
+              <p data-i18n="cardTwoCopy">Help crypto-native audiences understand how Web3 payment rails can support cross-border transfer and real-world money movement use cases.</p>
+              <div class="tag-row">
+                <span class="tag">USDT</span>
+                <span class="tag">Crypto users</span>
+                <span class="tag">Remittance</span>
+              </div>
+            </article>
+
+            <article class="info-card">
+              <div class="icon-box yellow">03</div>
+              <h3 data-i18n="cardThreeTitle">Global account utility</h3>
+              <p data-i18n="cardThreeCopy">For business, freelancer, and digital nomad channels, frame Mypal around global account access, payment flexibility, and international operations.</p>
+              <div class="tag-row">
+                <span class="tag">Freelancers</span>
+                <span class="tag">E-commerce</span>
+                <span class="tag">Travel</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="creator-fit">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker" data-i18n="fitKicker">Creator fit</div>
+              <h2 data-i18n="fitTitle">Are you one of the creators Mypal should work with?</h2>
+            </div>
+            <p data-i18n="fitCopy">If your channel belongs to one of the four creator categories below, and your audience has payment, cross-border, travel, crypto spending, or global online service pain points that Mypal can solve, you may be an ideal partner for us.</p>
+          </div>
+
+          <div class="fit-grid">
+            <article class="creator-card">
+              <div class="accent"></div>
+              <h3 data-i18n="fitOneTitle">Web3 and crypto</h3>
+              <p data-i18n="fitOneCopy">Your audience follows wallets, exchanges, stablecoins, DeFi, crypto basics, or practical ways to use digital assets in real payment scenarios.</p>
+            </article>
+            <article class="creator-card">
+              <div class="accent"></div>
+              <h3 data-i18n="fitTwoTitle">Cross-border e-commerce</h3>
+              <p data-i18n="fitTwoCopy">Your audience includes sellers, advertisers, marketplace operators, SaaS users, or teams dealing with global business payments and subscriptions.</p>
+            </article>
+            <article class="creator-card">
+              <div class="accent"></div>
+              <h3 data-i18n="fitThreeTitle">Travel and digital nomads</h3>
+              <p data-i18n="fitThreeCopy">Your audience books hotels, flights, transport, local services, and online subscriptions while traveling, relocating, or working globally.</p>
+            </article>
+            <article class="creator-card">
+              <div class="accent"></div>
+              <h3 data-i18n="fitFourTitle">Freelance and lifestyle</h3>
+              <p data-i18n="fitFourCopy">Your audience is made of remote workers, creators, online learners, global shoppers, or people managing income and expenses across platforms.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="angles">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker" data-i18n="anglesKicker">Content angles</div>
+              <h2 data-i18n="anglesTitle">Give every creator a clear way to explain Mypal.</h2>
+            </div>
+            <p data-i18n="anglesCopy">If you are interested in becoming a Mypal partner, we can provide promotion angles, material packs, and suggested copy based on your channel type. Start with the scenario closest to your audience, then adapt it into your own content format.</p>
+          </div>
+
+          <div class="angle-layout">
+            <div class="angle-tabs" role="tablist" aria-label="Creator content angles">
+              <button class="angle-tab" role="tab" type="button" id="tab-web3" aria-controls="panel-web3" aria-selected="true" data-angle="web3" data-i18n="tabWeb3">Web3 payments</button>
+              <button class="angle-tab" role="tab" type="button" id="tab-ecom" aria-controls="panel-ecom" aria-selected="false" data-angle="ecom" data-i18n="tabEcom">Cross-border e-commerce</button>
+              <button class="angle-tab" role="tab" type="button" id="tab-travel" aria-controls="panel-travel" aria-selected="false" data-angle="travel" data-i18n="tabTravel">Travel spending</button>
+              <button class="angle-tab" role="tab" type="button" id="tab-freelance" aria-controls="panel-freelance" aria-selected="false" data-angle="freelance" data-i18n="tabFreelance">Freelance income</button>
+            </div>
+
+            <article class="angle-panel" role="tabpanel" id="panel-web3" aria-labelledby="tab-web3">
+              <h3 data-i18n="web3Title">Turn crypto curiosity into real payment education.</h3>
+              <p class="muted" data-i18n="web3Intro">Best for channels covering wallets, exchanges, stablecoins, practical crypto adoption, and financial tools for global users.</p>
+              <div class="angle-columns">
+                <div class="mini-block">
+                  <h4 data-i18n="painTitle">Audience pain points</h4>
+                  <ul>
+                    <li data-i18n="web3PainOne">They hold digital assets but do not know how to use them in daily scenarios.</li>
+                    <li data-i18n="web3PainTwo">They need simple explanations of card-based crypto spending flows.</li>
+                    <li data-i18n="web3PainThree">They want tools that connect Web3 and real-world payments.</li>
+                  </ul>
+                </div>
+                <div class="mini-block">
+                  <h4 data-i18n="ideasTitle">Video ideas</h4>
+                  <ul>
+                    <li data-i18n="web3IdeaOne">"How crypto users can prepare for global online payments"</li>
+                    <li data-i18n="web3IdeaTwo">"USDT to everyday spending: what beginners should understand"</li>
+                    <li data-i18n="web3IdeaThree">"Mypal walkthrough for Web3 payment users"</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="angle-panel" role="tabpanel" id="panel-ecom" aria-labelledby="tab-ecom" hidden>
+              <h3 data-i18n="ecomTitle">Show sellers how payment flexibility affects operations.</h3>
+              <p class="muted" data-i18n="ecomIntro">Best for creators teaching cross-border e-commerce, paid ads, marketplace operations, SaaS subscriptions, and seller tools.</p>
+              <div class="angle-columns">
+                <div class="mini-block">
+                  <h4 data-i18n="painTitle2">Audience pain points</h4>
+                  <ul>
+                    <li data-i18n="ecomPainOne">They pay for tools, ads, suppliers, and services across different regions.</li>
+                    <li data-i18n="ecomPainTwo">They need backup payment methods for platform subscriptions.</li>
+                    <li data-i18n="ecomPainThree">They want payment workflows that match global business needs.</li>
+                  </ul>
+                </div>
+                <div class="mini-block">
+                  <h4 data-i18n="ideasTitle2">Video ideas</h4>
+                  <ul>
+                    <li data-i18n="ecomIdeaOne">"Payment setup checklist for cross-border sellers"</li>
+                    <li data-i18n="ecomIdeaTwo">"How sellers manage international tool subscriptions"</li>
+                    <li data-i18n="ecomIdeaThree">"Mypal for global e-commerce operators"</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="angle-panel" role="tabpanel" id="panel-travel" aria-labelledby="tab-travel" hidden>
+              <h3 data-i18n="travelTitle">Make global spending feel practical before the trip starts.</h3>
+              <p class="muted" data-i18n="travelIntro">Best for travel, relocation, student abroad, digital nomad, and destination-focused channels.</p>
+              <div class="angle-columns">
+                <div class="mini-block">
+                  <h4 data-i18n="painTitle3">Audience pain points</h4>
+                  <ul>
+                    <li data-i18n="travelPainOne">They need reliable online payment options before traveling.</li>
+                    <li data-i18n="travelPainTwo">They book hotels, flights, transport, and apps across borders.</li>
+                    <li data-i18n="travelPainThree">They want a simple payment preparation checklist.</li>
+                  </ul>
+                </div>
+                <div class="mini-block">
+                  <h4 data-i18n="ideasTitle3">Video ideas</h4>
+                  <ul>
+                    <li data-i18n="travelIdeaOne">"What payment tools I prepare before an overseas trip"</li>
+                    <li data-i18n="travelIdeaTwo">"Booking hotels and apps abroad: payment tips"</li>
+                    <li data-i18n="travelIdeaThree">"Mypal as part of a digital travel wallet setup"</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <article class="angle-panel" role="tabpanel" id="panel-freelance" aria-labelledby="tab-freelance" hidden>
+              <h3 data-i18n="freelanceTitle">Connect payment tools to online work and creator income.</h3>
+              <p class="muted" data-i18n="freelanceIntro">Best for freelance, remote work, creator economy, online business, and global lifestyle channels.</p>
+              <div class="angle-columns">
+                <div class="mini-block">
+                  <h4 data-i18n="painTitle4">Audience pain points</h4>
+                  <ul>
+                    <li data-i18n="freelancePainOne">They pay for international software, courses, and creator tools.</li>
+                    <li data-i18n="freelancePainTwo">They manage income and expenses across platforms and countries.</li>
+                    <li data-i18n="freelancePainThree">They want practical financial tools without complex explanations.</li>
+                  </ul>
+                </div>
+                <div class="mini-block">
+                  <h4 data-i18n="ideasTitle4">Video ideas</h4>
+                  <ul>
+                    <li data-i18n="freelanceIdeaOne">"My global payment stack as a remote worker"</li>
+                    <li data-i18n="freelanceIdeaTwo">"How creators pay for overseas tools and subscriptions"</li>
+                    <li data-i18n="freelanceIdeaThree">"Mypal setup guide for freelancers and online earners"</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker" data-i18n="playbookKicker">Creator playbook</div>
+              <h2 data-i18n="playbookTitle">Keep the message practical, specific, and audience-led.</h2>
+            </div>
+            <p data-i18n="playbookCopy">The goal is not to force every KOL into the same script. The page gives them a structure, then lets their channel style lead the final content.</p>
+          </div>
+          <div class="playbook">
+            <article class="play-card">
+              <h3 data-i18n="doTitle">Recommended approach</h3>
+              <p data-i18n="doCopy">Start from a real user scenario, explain the payment problem, introduce Mypal as the tool, then show the official website and invite the audience to learn more.</p>
+            </article>
+            <article class="play-card">
+              <h3 data-i18n="incentiveTitle">Partnership incentives</h3>
+              <p data-i18n="incentiveCopy">Mypal offers creator incentives. The exact model can be discussed privately based on channel traffic, audience quality, region, content format, and conversion potential.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="media-kit">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker" data-i18n="mediaKicker">Media kit</div>
+              <h2 data-i18n="mediaTitle">Promotion assets for creators.</h2>
+            </div>
+            <p data-i18n="mediaCopy">The current pack is partially filled. More campaign posters, product screenshots, scripts, captions, and creator briefs can be added here as you provide them.</p>
+          </div>
+
+          <div class="asset-grid">
+            <article class="asset-card">
+              <div class="asset-gallery" aria-label="Campaign poster assets">
+                <a class="asset-figure" href="assets/mypal-pay-card.jpeg" target="_blank" rel="noreferrer">
+                  <img src="assets/mypal-pay-card.jpeg" alt="Mypal Pay Card campaign poster">
+                  <span class="asset-label" data-i18n="assetLabelOpen">Open asset</span>
+                </a>
+                <a class="asset-figure" href="assets/mypal-borderless-spending.jpeg" target="_blank" rel="noreferrer">
+                  <img src="assets/mypal-borderless-spending.jpeg" alt="Mypal borderless spending campaign poster">
+                  <span class="asset-label" data-i18n="assetLabelOpen2">Open asset</span>
+                </a>
+                <a class="asset-figure" href="assets/mypal-spending-campaign.jpeg" target="_blank" rel="noreferrer">
+                  <img src="assets/mypal-spending-campaign.jpeg" alt="Mypal spending campaign poster">
+                  <span class="asset-label" data-i18n="assetLabelOpen3">Open asset</span>
+                </a>
+              </div>
+              <div class="asset-body">
+                <h3 data-i18n="assetOneTitle">Campaign posters</h3>
+                <p data-i18n="assetOneCopy">Current poster materials collected from Mypal social promotion. Creators can reference the layout, tone, and campaign messaging.</p>
+              </div>
+            </article>
+
+            <article class="asset-card">
+              <div class="asset-gallery" aria-label="Product screenshot assets">
+                <a class="asset-figure" href="assets/mypal-instant-payment.jpeg" target="_blank" rel="noreferrer">
+                  <img src="assets/mypal-instant-payment.jpeg" alt="Mypal instant payment product interface material">
+                  <span class="asset-label" data-i18n="assetLabelOpen4">Open asset</span>
+                </a>
+              </div>
+              <div class="asset-body">
+                <h3 data-i18n="assetTwoTitle">Product screenshots</h3>
+                <p data-i18n="assetTwoCopy">Current product and app-interface style materials. More onboarding, card, payment, remittance, or account screenshots can be added later.</p>
+              </div>
+            </article>
+
+            <article class="asset-card">
+              <div class="asset-empty">
+                <strong data-i18n="assetThreeMock">Scripts, captions, and talking points</strong>
+                <span data-i18n="assetThreeTag">This area is reserved for future copywriting packs, captions, campaign hooks, and creator brief documents.</span>
+              </div>
+              <div class="asset-body">
+                <h3 data-i18n="assetThreeTitle">Copy and talking points</h3>
+                <p data-i18n="assetThreeCopy">No files have been added here yet. Once the copy pack is ready, it can be displayed as downloadable scripts and post templates.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="references">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker" data-i18n="refsKicker">Reference videos</div>
+              <h2 data-i18n="refsTitle">Videos you can reference before creating content.</h2>
+            </div>
+            <p data-i18n="refsCopy">These are example videos made by ambassadors we have already contacted. You can use them to understand the general content style, flow, and product explanation approach.</p>
+          </div>
+
+          <div class="video-grid">
+            <article class="video-card">
+              <iframe class="video-frame" src="https://www.youtube.com/embed/gUnpm89XASo?start=38" title="Mypal reference video 01" allowfullscreen></iframe>
+              <div class="video-body">
+                <h3 data-i18n="videoOneTitle">Reference video 01</h3>
+                <p><a href="https://www.youtube.com/watch?v=gUnpm89XASo&t=38s" target="_blank" rel="noreferrer">youtube.com/watch?v=gUnpm89XASo</a></p>
+              </div>
+            </article>
+            <article class="video-card">
+              <iframe class="video-frame" src="https://www.youtube.com/embed/jWRkzpZUs4w?start=19" title="Mypal reference video 02" allowfullscreen></iframe>
+              <div class="video-body">
+                <h3 data-i18n="videoTwoTitle">Reference video 02</h3>
+                <p><a href="https://www.youtube.com/watch?v=jWRkzpZUs4w&t=19s" target="_blank" rel="noreferrer">youtube.com/watch?v=jWRkzpZUs4w</a></p>
+              </div>
+            </article>
+          </div>
+
+          <div class="reference-links">
+            <h3 data-i18n="moreVideoTitle">More reference links</h3>
+            <ul>
+              <li><a href="https://youtu.be/j3kMgs11NDI" target="_blank" rel="noreferrer">https://youtu.be/j3kMgs11NDI</a></li>
+              <li><a href="https://www.youtube.com/watch?v=7mAqmI0p9jU" target="_blank" rel="noreferrer">https://www.youtube.com/watch?v=7mAqmI0p9jU</a></li>
+              <li><a href="https://www.youtube.com/watch?v=S09LYM0DYi4&t=1s" target="_blank" rel="noreferrer">https://www.youtube.com/watch?v=S09LYM0DYi4&t=1s</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker" data-i18n="flowKicker">Collaboration flow</div>
+              <h2 data-i18n="flowTitle">A cleaner BD process from first message to campaign launch.</h2>
+            </div>
+            <p data-i18n="flowCopy">This gives contacted creators a simple next-step map, so your outreach does not need to explain everything repeatedly.</p>
+          </div>
+
+          <div class="flow">
+            <article class="flow-step">
+              <h3 data-i18n="flowOneTitle">Learn Mypal</h3>
+              <p data-i18n="flowOneCopy">Visit the official website and understand the core product value.</p>
+            </article>
+            <article class="flow-step">
+              <h3 data-i18n="flowTwoTitle">Choose an angle</h3>
+              <p data-i18n="flowTwoCopy">Match the message to Web3, e-commerce, travel, or freelance audiences.</p>
+            </article>
+            <article class="flow-step">
+              <h3 data-i18n="flowThreeTitle">Use the assets</h3>
+              <p data-i18n="flowThreeCopy">Download images, screenshots, scripts, and campaign references.</p>
+            </article>
+            <article class="flow-step">
+              <h3 data-i18n="flowFourTitle">Discuss incentive</h3>
+              <p data-i18n="flowFourCopy">BD reviews channel data and proposes a suitable cooperation model.</p>
+            </article>
+            <article class="flow-step">
+              <h3 data-i18n="flowFiveTitle">Launch content</h3>
+              <p data-i18n="flowFiveCopy">Publish, track performance, optimize future cooperation, and scale.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark" id="contact">
+        <div class="section-inner">
+          <div class="contact-layout">
+            <div>
+              <div class="section-kicker" data-i18n="contactKicker">Contact BD</div>
+              <h2 data-i18n="contactTitle">Interested in promoting Mypal?</h2>
+              <p class="muted" data-i18n="contactCopy">Send your channel links, audience region, traffic data, and preferred content format. We will discuss a custom incentive plan based on your account performance and audience fit.</p>
+              <div class="contact-list" aria-label="BD contact methods">
+                <a class="contact-link" href="https://t.me/isShannaaa" target="_blank" rel="noreferrer" aria-label="Telegram contact">
+                  <span>Telegram</span>
+                  <span data-i18n="tgPlaceholder">@isShannaaa</span>
+                </a>
+                <a class="contact-link" href="#" aria-label="WhatsApp contact placeholder">
+                  <span>WhatsApp</span>
+                  <span data-i18n="waPlaceholder">To be updated</span>
+                </a>
+                <a class="contact-link" href="mailto:shanna@mypal-biz.pro" aria-label="Email contact">
+                  <span>Email</span>
+                  <span data-i18n="emailPlaceholder">shanna@mypal-biz.pro</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-panel">
+              <form class="lead-form">
+                <label>
+                  <span data-i18n="formName">Name or creator handle</span>
+                  <input type="text" placeholder="@creatorname" autocomplete="name">
+                </label>
+                <label>
+                  <span data-i18n="formChannel">Channel link</span>
+                  <input type="url" placeholder="https://youtube.com/@channel">
+                </label>
+                <label>
+                  <span data-i18n="formAudience">Audience region and niche</span>
+                  <input type="text" placeholder="SEA, Web3 payments, 80K followers">
+                </label>
+                <label>
+                  <span data-i18n="formMessage">Cooperation idea</span>
+                  <textarea placeholder="Tell us your content idea, average views, and preferred cooperation model."></textarea>
+                </label>
+                <button class="btn btn-primary" type="button" data-i18n="formButton">Prepare inquiry</button>
+                <p class="form-note" data-i18n="formNote">Static page note: this form is a visual intake area. Add your real contact method or backend later.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span data-i18n="footerLeft">Mypal BD Creator Partnership Hub</span>
+        <span data-i18n="footerRight">Official website: www.mypal.pro</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        navSubtitle: "Creator Partnership Hub",
+        navProduct: "Product",
+        navAngles: "Angles",
+        navMedia: "Media Kit",
+        navRefs: "References",
+        navContact: "Contact",
+        navCta: "Talk to BD",
+        heroKicker: "Creator partnerships for global payment stories",
+        heroTitle: "Help your audience turn digital assets into everyday global payment power.",
+        heroCopy: "Mypal focuses on Web3 financial innovation and global digital payments, including digital cards, Web3 remittance, and offshore digital account services for users who move money, spend online, and operate across borders.",
+        heroWebsite: "Visit official website",
+        heroKit: "View creator kit",
+        heroAngles: "Find your content angle",
+        visualKicker: "Mypal Pro",
+        visualTitle: "One payment story. Many audience angles.",
+        visualRowOne: "Creator brief",
+        visualRowOneSub: "Match message to audience",
+        visualRowTwo: "Media assets",
+        visualRowTwoSub: "Images, screenshots, scripts",
+        visualRowThree: "BD contact",
+        visualRowThreeSub: "Telegram, WhatsApp, email",
+        visualReady: "Ready",
+        visualSoon: "Soon",
+        visualOpen: "Open",
+        signalOneTitle: "For Web3 creators",
+        signalOneCopy: "Explain how crypto-native users can approach real-world spending.",
+        signalTwoTitle: "For commerce creators",
+        signalTwoCopy: "Show payment workflows for cross-border sellers and digital operators.",
+        productKicker: "Product snapshot",
+        productTitle: "What creators should understand before they post.",
+        productCopy: "This page helps you quickly understand Mypal, then connect our product to your own channel format, audience needs, and content style so you can promote it in a way that feels natural and effective.",
+        cardOneTitle: "Digital card payments",
+        cardOneCopy: "Position Mypal as a practical bridge between online global services, digital subscriptions, travel booking, and card-based spending scenarios.",
+        cardTwoTitle: "Web3 remittance",
+        cardTwoCopy: "Help crypto-native audiences understand how Web3 payment rails can support cross-border transfer and real-world money movement use cases.",
+        cardThreeTitle: "Global account utility",
+        cardThreeCopy: "For business, freelancer, and digital nomad channels, frame Mypal around global account access, payment flexibility, and international operations.",
+        fitKicker: "Creator fit",
+        fitTitle: "Are you one of the creators Mypal should work with?",
+        fitCopy: "If your channel belongs to one of the four creator categories below, and your audience has payment, cross-border, travel, crypto spending, or global online service pain points that Mypal can solve, you may be an ideal partner for us.",
+        fitOneTitle: "Web3 and crypto",
+        fitOneCopy: "Your audience follows wallets, exchanges, stablecoins, DeFi, crypto basics, or practical ways to use digital assets in real payment scenarios.",
+        fitTwoTitle: "Cross-border e-commerce",
+        fitTwoCopy: "Your audience includes sellers, advertisers, marketplace operators, SaaS users, or teams dealing with global business payments and subscriptions.",
+        fitThreeTitle: "Travel and digital nomads",
+        fitThreeCopy: "Your audience books hotels, flights, transport, local services, and online subscriptions while traveling, relocating, or working globally.",
+        fitFourTitle: "Freelance and lifestyle",
+        fitFourCopy: "Your audience is made of remote workers, creators, online learners, global shoppers, or people managing income and expenses across platforms.",
+        anglesKicker: "Content angles",
+        anglesTitle: "Give every creator a clear way to explain Mypal.",
+        anglesCopy: "If you are interested in becoming a Mypal partner, we can provide promotion angles, material packs, and suggested copy based on your channel type. Start with the scenario closest to your audience, then adapt it into your own content format.",
+        tabWeb3: "Web3 payments",
+        tabEcom: "Cross-border e-commerce",
+        tabTravel: "Travel spending",
+        tabFreelance: "Freelance income",
+        web3Title: "Turn crypto curiosity into real payment education.",
+        web3Intro: "Best for channels covering wallets, exchanges, stablecoins, practical crypto adoption, and financial tools for global users.",
+        painTitle: "Audience pain points",
+        ideasTitle: "Video ideas",
+        web3PainOne: "They hold digital assets but do not know how to use them in daily scenarios.",
+        web3PainTwo: "They need simple explanations of card-based crypto spending flows.",
+        web3PainThree: "They want tools that connect Web3 and real-world payments.",
+        web3IdeaOne: "\"How crypto users can prepare for global online payments\"",
+        web3IdeaTwo: "\"USDT to everyday spending: what beginners should understand\"",
+        web3IdeaThree: "\"Mypal walkthrough for Web3 payment users\"",
+        ecomTitle: "Show sellers how payment flexibility affects operations.",
+        ecomIntro: "Best for creators teaching cross-border e-commerce, paid ads, marketplace operations, SaaS subscriptions, and seller tools.",
+        painTitle2: "Audience pain points",
+        ideasTitle2: "Video ideas",
+        ecomPainOne: "They pay for tools, ads, suppliers, and services across different regions.",
+        ecomPainTwo: "They need backup payment methods for platform subscriptions.",
+        ecomPainThree: "They want payment workflows that match global business needs.",
+        ecomIdeaOne: "\"Payment setup checklist for cross-border sellers\"",
+        ecomIdeaTwo: "\"How sellers manage international tool subscriptions\"",
+        ecomIdeaThree: "\"Mypal for global e-commerce operators\"",
+        travelTitle: "Make global spending feel practical before the trip starts.",
+        travelIntro: "Best for travel, relocation, student abroad, digital nomad, and destination-focused channels.",
+        painTitle3: "Audience pain points",
+        ideasTitle3: "Video ideas",
+        travelPainOne: "They need reliable online payment options before traveling.",
+        travelPainTwo: "They book hotels, flights, transport, and apps across borders.",
+        travelPainThree: "They want a simple payment preparation checklist.",
+        travelIdeaOne: "\"What payment tools I prepare before an overseas trip\"",
+        travelIdeaTwo: "\"Booking hotels and apps abroad: payment tips\"",
+        travelIdeaThree: "\"Mypal as part of a digital travel wallet setup\"",
+        freelanceTitle: "Connect payment tools to online work and creator income.",
+        freelanceIntro: "Best for freelance, remote work, creator economy, online business, and global lifestyle channels.",
+        painTitle4: "Audience pain points",
+        ideasTitle4: "Video ideas",
+        freelancePainOne: "They pay for international software, courses, and creator tools.",
+        freelancePainTwo: "They manage income and expenses across platforms and countries.",
+        freelancePainThree: "They want practical financial tools without complex explanations.",
+        freelanceIdeaOne: "\"My global payment stack as a remote worker\"",
+        freelanceIdeaTwo: "\"How creators pay for overseas tools and subscriptions\"",
+        freelanceIdeaThree: "\"Mypal setup guide for freelancers and online earners\"",
+        playbookKicker: "Creator playbook",
+        playbookTitle: "Keep the message practical, specific, and audience-led.",
+        playbookCopy: "The goal is not to force every KOL into the same script. The page gives them a structure, then lets their channel style lead the final content.",
+        doTitle: "Recommended approach",
+        doCopy: "Start from a real user scenario, explain the payment problem, introduce Mypal as the tool, then show the official website and invite the audience to learn more.",
+        incentiveTitle: "Partnership incentives",
+        incentiveCopy: "Mypal offers creator incentives. The exact model can be discussed privately based on channel traffic, audience quality, region, content format, and conversion potential.",
+        mediaKicker: "Media kit",
+        mediaTitle: "Promotion assets for creators.",
+        mediaCopy: "The current pack is partially filled. More campaign posters, product screenshots, scripts, captions, and creator briefs can be added here as you provide them.",
+        assetLabelOpen: "Open asset",
+        assetLabelOpen2: "Open asset",
+        assetLabelOpen3: "Open asset",
+        assetLabelOpen4: "Open asset",
+        assetOneTitle: "Campaign posters",
+        assetOneCopy: "Current poster materials collected from Mypal social promotion. Creators can reference the layout, tone, and campaign messaging.",
+        assetTwoTitle: "Product screenshots",
+        assetTwoCopy: "Current product and app-interface style materials. More onboarding, card, payment, remittance, or account screenshots can be added later.",
+        assetThreeMock: "Scripts, captions, and talking points",
+        assetThreeTag: "This area is reserved for future copywriting packs, captions, campaign hooks, and creator brief documents.",
+        assetThreeTitle: "Copy and talking points",
+        assetThreeCopy: "No files have been added here yet. Once the copy pack is ready, it can be displayed as downloadable scripts and post templates.",
+        refsKicker: "Reference videos",
+        refsTitle: "Videos you can reference before creating content.",
+        refsCopy: "These are example videos made by ambassadors we have already contacted. You can use them to understand the general content style, flow, and product explanation approach.",
+        videoOneThumb: "YouTube Slot 01",
+        videoOneTitle: "Reference video 01",
+        videoOneCopy: "Reference for creators who teach crypto users how payment products work.",
+        videoTwoThumb: "YouTube Slot 02",
+        videoTwoTitle: "Reference video 02",
+        videoTwoCopy: "Reference for walkthrough, app screen recording, and step-by-step content.",
+        videoThreeThumb: "YouTube Slot 03",
+        videoThreeTitle: "Reference video 03",
+        videoThreeCopy: "Reference for travel, e-commerce, freelance, and global lifestyle channels.",
+        videoFourTitle: "Reference video 04",
+        videoFiveTitle: "Reference video 05",
+        moreVideoTitle: "More reference links",
+        flowKicker: "Collaboration flow",
+        flowTitle: "A cleaner BD process from first message to campaign launch.",
+        flowCopy: "This gives contacted creators a simple next-step map, so your outreach does not need to explain everything repeatedly.",
+        flowOneTitle: "Learn Mypal",
+        flowOneCopy: "Visit the official website and understand the core product value.",
+        flowTwoTitle: "Choose an angle",
+        flowTwoCopy: "Match the message to Web3, e-commerce, travel, or freelance audiences.",
+        flowThreeTitle: "Use the assets",
+        flowThreeCopy: "Download images, screenshots, scripts, and campaign references.",
+        flowFourTitle: "Discuss incentive",
+        flowFourCopy: "BD reviews channel data and proposes a suitable cooperation model.",
+        flowFiveTitle: "Launch content",
+        flowFiveCopy: "Publish, track performance, optimize future cooperation, and scale.",
+        contactKicker: "Contact BD",
+        contactTitle: "Interested in promoting Mypal?",
+        contactCopy: "Send your channel links, audience region, traffic data, and preferred content format. We will discuss a custom incentive plan based on your account performance and audience fit.",
+        tgPlaceholder: "@isShannaaa",
+        waPlaceholder: "To be updated",
+        emailPlaceholder: "shanna@mypal-biz.pro",
+        formName: "Name or creator handle",
+        formChannel: "Channel link",
+        formAudience: "Audience region and niche",
+        formMessage: "Cooperation idea",
+        formButton: "Prepare inquiry",
+        formNote: "Static page note: this form is a visual intake area. Add your real contact method or backend later.",
+        footerLeft: "Mypal BD Creator Partnership Hub",
+        footerRight: "Official website: www.mypal.pro"
+      },
+      zh: {
+        navSubtitle: "創作者合作中心",
+        navProduct: "產品",
+        navAngles: "推廣角度",
+        navMedia: "素材包",
+        navRefs: "參考影片",
+        navContact: "聯繫",
+        navCta: "聯繫 BD",
+        heroKicker: "面向全球支付場景的創作者合作",
+        heroTitle: "幫助你的受眾把數位資產連接到日常全球支付場景。",
+        heroCopy: "Mypal 專注於 Web3 金融創新與全球數位支付，服務包含數位卡、Web3 國際匯款，以及離岸數位帳戶，適合需要跨境資金流動、線上消費與全球化營運的使用者。",
+        heroWebsite: "前往官方網站",
+        heroKit: "查看創作者素材",
+        heroAngles: "尋找推廣角度",
+        visualKicker: "Mypal Pro",
+        visualTitle: "一個支付產品，多種內容切入角度。",
+        visualRowOne: "創作者簡報",
+        visualRowOneSub: "根據受眾匹配訊息",
+        visualRowTwo: "推廣素材",
+        visualRowTwoSub: "圖片、截圖、腳本",
+        visualRowThree: "BD 聯繫",
+        visualRowThreeSub: "Telegram、WhatsApp、Email",
+        visualReady: "已準備",
+        visualSoon: "待更新",
+        visualOpen: "可聯繫",
+        signalOneTitle: "適合 Web3 創作者",
+        signalOneCopy: "說明加密使用者如何理解現實消費場景。",
+        signalTwoTitle: "適合電商創作者",
+        signalTwoCopy: "展示跨境賣家與數位營運者的支付工作流。",
+        productKicker: "產品速覽",
+        productTitle: "創作者發布前需要先理解的重點。",
+        productCopy: "這個頁面會幫助您快速理解 Mypal，再結合您自身頻道的內容形式、受眾需求與內容風格，找到能和我們產品連接的推廣方式，進而更自然、更有效地介紹 Mypal。",
+        cardOneTitle: "數位卡支付",
+        cardOneCopy: "將 Mypal 定位為線上全球服務、數位訂閱、旅行預訂，以及卡支付消費場景之間的實用橋樑。",
+        cardTwoTitle: "Web3 國際匯款",
+        cardTwoCopy: "幫助加密原生受眾理解 Web3 支付通道如何支援跨境轉帳與現實資金流動場景。",
+        cardThreeTitle: "全球帳戶能力",
+        cardThreeCopy: "對商業、自由職業與數位遊民頻道，可以圍繞全球帳戶、支付彈性與國際化營運來介紹 Mypal。",
+        fitKicker: "適合的創作者",
+        fitTitle: "您是否屬於 Mypal 適合合作的創作者？",
+        fitCopy: "如果您的頻道屬於以下四類創作者之一，並且您的受眾存在 Mypal 可以解決的支付、跨境、旅行、加密資產消費或全球線上服務痛點，那麼您可能就是我們正在尋找的理想合作夥伴。",
+        fitOneTitle: "Web3 與加密貨幣",
+        fitOneCopy: "您的受眾關注錢包、交易所、穩定幣、DeFi、加密新手教育，或希望了解數位資產如何連接真實支付場景。",
+        fitTwoTitle: "跨境電商",
+        fitTwoCopy: "您的受眾包含賣家、廣告投手、平台營運者、SaaS 使用者，或需要處理全球業務支付與訂閱費用的團隊。",
+        fitThreeTitle: "旅行與數位遊民",
+        fitThreeCopy: "您的受眾會在旅行、搬遷或全球工作時預訂飯店、機票、交通、本地服務與線上訂閱。",
+        fitFourTitle: "自由職業與生活方式",
+        fitFourCopy: "您的受眾是遠端工作者、創作者、線上學習者、全球購物者，或需要跨平台管理收入與支出的人群。",
+        anglesKicker: "內容角度",
+        anglesTitle: "讓每位創作者都能清楚地介紹 Mypal。",
+        anglesCopy: "如果您有意向成為 Mypal 的合作夥伴，我們可以根據您的頻道類型提供推廣角度、素材包與建議文案。您可以先選擇最接近受眾的場景，再改寫成適合自己內容形式的表達。",
+        tabWeb3: "Web3 支付",
+        tabEcom: "跨境電商",
+        tabTravel: "旅行消費",
+        tabFreelance: "自由職業收入",
+        web3Title: "把加密好奇心轉化成真實支付教育。",
+        web3Intro: "適合介紹錢包、交易所、穩定幣、加密落地應用，以及全球化金融工具的頻道。",
+        painTitle: "受眾痛點",
+        ideasTitle: "影片選題",
+        web3PainOne: "他們持有數位資產，但不知道如何連接到日常消費場景。",
+        web3PainTwo: "他們需要簡單理解基於卡的加密支付流程。",
+        web3PainThree: "他們想要連接 Web3 與現實支付的工具。",
+        web3IdeaOne: "「加密使用者如何準備全球線上支付」",
+        web3IdeaTwo: "「從 USDT 到日常消費：新手應該知道什麼」",
+        web3IdeaThree: "「Mypal Web3 支付使用者 walkthrough」",
+        ecomTitle: "展示支付彈性如何影響賣家營運。",
+        ecomIntro: "適合教授跨境電商、廣告投放、平台營運、SaaS 訂閱與賣家工具的創作者。",
+        painTitle2: "受眾痛點",
+        ideasTitle2: "影片選題",
+        ecomPainOne: "他們需要跨地區支付工具、廣告、供應商與服務費用。",
+        ecomPainTwo: "他們需要平台訂閱的備用支付方式。",
+        ecomPainThree: "他們想要符合全球業務需求的支付工作流。",
+        ecomIdeaOne: "「跨境賣家的支付設定清單」",
+        ecomIdeaTwo: "「賣家如何管理國際工具訂閱」",
+        ecomIdeaThree: "「Mypal 如何服務全球電商營運者」",
+        travelTitle: "在出發前，讓全球支付變得更具體。",
+        travelIntro: "適合旅行、搬遷、留學、數位遊民與目的地內容頻道。",
+        painTitle3: "受眾痛點",
+        ideasTitle3: "影片選題",
+        travelPainOne: "他們在旅行前需要可靠的線上支付選項。",
+        travelPainTwo: "他們跨境預訂飯店、機票、交通與 App。",
+        travelPainThree: "他們想要一份簡單的支付準備清單。",
+        travelIdeaOne: "「我出國前會準備哪些支付工具」",
+        travelIdeaTwo: "「海外預訂飯店與 App 的支付技巧」",
+        travelIdeaThree: "「把 Mypal 放進數位旅行錢包配置」",
+        freelanceTitle: "把支付工具連接到線上工作與創作者收入。",
+        freelanceIntro: "適合自由職業、遠端工作、創作者經濟、線上商業與全球生活方式頻道。",
+        painTitle4: "受眾痛點",
+        ideasTitle4: "影片選題",
+        freelancePainOne: "他們需要支付國際軟體、課程與創作者工具。",
+        freelancePainTwo: "他們跨平台、跨國家管理收入與支出。",
+        freelancePainThree: "他們需要實用金融工具，而不是複雜概念。",
+        freelanceIdeaOne: "「我作為遠端工作者的全球支付配置」",
+        freelanceIdeaTwo: "「創作者如何支付海外工具與訂閱」",
+        freelanceIdeaThree: "「Mypal 自由職業者與線上收入者設定指南」",
+        playbookKicker: "創作者簡報",
+        playbookTitle: "訊息要實用、具體，並以受眾為中心。",
+        playbookCopy: "目標不是讓每個 KOL 都照同一份腳本講，而是給他們清晰結構，再讓他們用自己的頻道風格完成內容。",
+        doTitle: "建議表達方式",
+        doCopy: "從真實使用場景開始，解釋支付痛點，再引入 Mypal 作為工具，最後展示官方網站並引導受眾深入了解。",
+        incentiveTitle: "合作激勵",
+        incentiveCopy: "Mypal 提供創作者合作激勵。具體模式可根據頻道流量、受眾品質、地區、內容形式與轉化潛力私下洽談。",
+        mediaKicker: "素材包",
+        mediaTitle: "提供給創作者使用的推廣素材。",
+        mediaCopy: "目前素材包已先放入部分內容。後續你提供更多活動海報、產品截圖、腳本、caption 與創作者簡報後，都可以繼續補充到這裡。",
+        assetLabelOpen: "打開素材",
+        assetLabelOpen2: "打開素材",
+        assetLabelOpen3: "打開素材",
+        assetLabelOpen4: "打開素材",
+        assetOneTitle: "活動海報",
+        assetOneCopy: "目前已放入從 Mypal 社群推廣中收集到的海報素材。創作者可以參考版式、語氣與活動訊息。",
+        assetTwoTitle: "產品截圖",
+        assetTwoCopy: "目前已放入產品與 App 介面風格素材。後續可繼續補充註冊、卡片、支付、匯款或帳戶相關截圖。",
+        assetThreeMock: "腳本、文案與話術重點",
+        assetThreeTag: "這裡預留給後續文案包、貼文 caption、活動 hook 與創作者簡報文件。",
+        assetThreeTitle: "文案與話術",
+        assetThreeCopy: "目前這一欄尚未加入文件。等文案包準備好後，可以展示為可下載的腳本與貼文模板。",
+        refsKicker: "參考影片",
+        refsTitle: "您可以先參考這些影片，再開始製作內容。",
+        refsCopy: "這些是我們已經聯繫過的推廣大使製作的範例影片。您可以用它們來理解整體內容風格、影片節奏與產品介紹方式。",
+        videoOneThumb: "YouTube 位置 01",
+        videoOneTitle: "參考影片 01",
+        videoOneCopy: "適合教加密使用者理解支付產品的創作者參考。",
+        videoTwoThumb: "YouTube 位置 02",
+        videoTwoTitle: "參考影片 02",
+        videoTwoCopy: "適合 walkthrough、App 錄屏與步驟教學類內容參考。",
+        videoThreeThumb: "YouTube 位置 03",
+        videoThreeTitle: "參考影片 03",
+        videoThreeCopy: "適合旅行、電商、自由職業與全球生活方式頻道參考。",
+        videoFourTitle: "參考影片 04",
+        videoFiveTitle: "參考影片 05",
+        moreVideoTitle: "更多參考連結",
+        flowKicker: "合作流程",
+        flowTitle: "從第一次聯繫到內容發布，讓 BD 流程更清楚。",
+        flowCopy: "這可以讓被聯繫的創作者快速知道下一步，你不需要在每次私訊裡重複解釋全部內容。",
+        flowOneTitle: "了解 Mypal",
+        flowOneCopy: "前往官方網站，理解核心產品價值。",
+        flowTwoTitle: "選擇角度",
+        flowTwoCopy: "根據 Web3、電商、旅行或自由職業受眾匹配訊息。",
+        flowThreeTitle: "使用素材",
+        flowThreeCopy: "下載圖片、截圖、腳本與活動參考。",
+        flowFourTitle: "洽談激勵",
+        flowFourCopy: "BD 根據頻道數據提出合適的合作模式。",
+        flowFiveTitle: "發布內容",
+        flowFiveCopy: "發布、追蹤效果、優化後續合作並擴大規模。",
+        contactKicker: "聯繫 BD",
+        contactTitle: "有興趣推廣 Mypal 嗎？",
+        contactCopy: "請發送你的頻道連結、受眾地區、流量數據與偏好的內容形式。我們會根據你的帳號表現與受眾匹配度討論客製化激勵方案。",
+        tgPlaceholder: "@isShannaaa",
+        waPlaceholder: "待更新",
+        emailPlaceholder: "shanna@mypal-biz.pro",
+        formName: "姓名或創作者帳號",
+        formChannel: "頻道連結",
+        formAudience: "受眾地區與內容類型",
+        formMessage: "合作想法",
+        formButton: "準備合作詢問",
+        formNote: "靜態頁面提示：這個表單目前是視覺收集區，之後可加入真實聯繫方式或後端。",
+        footerLeft: "Mypal BD 創作者合作中心",
+        footerRight: "官方網站：www.mypal.pro"
+      }
+    };
+
+    const languageButtons = document.querySelectorAll("[data-lang]");
+    const translatableNodes = document.querySelectorAll("[data-i18n]");
+    const tabs = document.querySelectorAll(".angle-tab");
+    const panels = document.querySelectorAll(".angle-panel");
+
+    function setLanguage(lang) {
+      const dictionary = translations[lang];
+      translatableNodes.forEach((node) => {
+        const key = node.dataset.i18n;
+        if (dictionary[key]) {
+          node.textContent = dictionary[key];
+        }
+      });
+      languageButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+      });
+      document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+      document.body.classList.toggle("is-zh", lang === "zh");
+    }
+
+    function selectAngle(angle) {
+      tabs.forEach((tab) => {
+        const selected = tab.dataset.angle === angle;
+        tab.setAttribute("aria-selected", String(selected));
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.id !== `panel-${angle}`;
+      });
+    }
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.lang));
+    });
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => selectAngle(tab.dataset.angle));
+    });
+  </script>
+</body>
+</html>
